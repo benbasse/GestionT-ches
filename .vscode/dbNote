@@ -1,0 +1,33 @@
+-- CRÉATION DES TABLES
+CREATE TABLE Employes (
+    ID_Employe INT  PRIMARY KEY AUTO_INCREMENT,
+    NAME VARCHAR (50) UNIQUE NOT NULL,
+    EMAIL_ADDRESS VARCHAR(100) NOT NULL UNIQUE,
+    PASSWORD VARCHAR(100) NOT NULL UNIQUE,
+);
+
+CREATE TABLE Taches (
+    ID_Tache INT PRIMARY KEY AUTO_INCREMENT,
+    NAME_TACHE VARCHAR(255) NOT NULL,
+    DESCRIPTION VARCHAR(255) NOT NULL,
+    DATE_ECHEANCE DATETIME ,
+    STATUS ENUM('a_faire','en_cours','terminee') DEFAULT 'a_faire' NOT NULL,
+    PRIORITY ENUM('faible', 'moyenne', 'elevee') NOT NULL,
+    is_deleted BOOLEAN DEFAULT false,
+    CREATED_BY INT REFERENCES Employes(id_Employe),    
+    FOREIGN KEY (CREATED_BY) REFERENCES Employes(id_Employe) ON DELETE CASCADE
+    );
+
+-- QUAND ON SUPPRIME UNE TÂCHES IL NE DOIT PLUS SE FIGURER DANS LA BASE DE DONNÉE,
+-- ALORS QUELLE L'INSTRACTION A FAIRE POUR LE MIEUX GARANTIR CECI ?
+-- Ce que je veux dire c'est qu'il ne doit pas y avoir de référence vers cette tache dans la table employés
+-- ou les autres tables.
+-- Je pense à une solution qui consiste à supprimer le lien entre l'employé et la tâche avant de supp
+-- erter la tâche mais j'ai peur d'avoir des erreurs si par exemple il n'y a plus de lien
+-- entre l'employé et la tâche ou s'ils sont plusieurs liens entre un même employé et la meme tache
+-- Comment peut-on gérer cela grace au SQL?
+-- On peut utiliser une instruction UPDATE pour mettre à jour le champ CREATED_BY sur zéro ou null avant de supprimer la
+-- J'aimerais obtenir une instruction sql pour supprimer une tache sans risque de violation de contrainte de cl
+-- é étrangère.
+-- Merci!
+

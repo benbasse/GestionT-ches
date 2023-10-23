@@ -1,0 +1,105 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+.lop {
+    margin-left: 19%;
+}
+
+.navbar {
+    background-color: green;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.task-container {
+    text-align: left;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 60%;
+}
+
+.leye {
+    color: white;
+}
+
+.task-container h1 {
+    font-size: 24px;
+}
+
+.task-container p {
+    font-size: 16px;
+}
+
+.task-container .inline-elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-container .inline-elements p {
+    margin: 0;
+    color: red; /* Change text color to red */
+}
+.task-container .inline-elements .paragraph{
+    color: green;
+}
+.task-container button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Additional CSS for new task elements */
+.task-container + .task-container {
+    margin-top: 20px;
+}
+
+.lp {
+    margin-top: 10px;
+}
+
+.add-task {
+    text-align: left;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 60%;
+}
+
+.add-task h1 {
+    font-size: 24px;
+}
+
+.add-task label {
+    display: block;
+    margin-top: 10px;
+}
+
+.add-task select,
+.add-task input[type="text"],
+.add-task textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-task button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
